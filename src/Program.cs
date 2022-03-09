@@ -1,10 +1,10 @@
 ﻿using System.CommandLine;
-using Newtonsoft.Json;
+
 namespace Aserto.UserManager
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             var userOption = new Option<string>(
                 "--user-id",
@@ -18,8 +18,7 @@ namespace Aserto.UserManager
 
             rootCommand.Description = "User Manager";
 
-            rootCommand.SetHandler(async (string userID) =>
-            {
+            rootCommand.SetHandler(async (string userID) => {
                 var config = new Config();
                 var producer = new Okta.Producer(config.Okta);
                 var subscriber = new Aserto.Subscriber(config.Aserto);
@@ -43,15 +42,6 @@ namespace Aserto.UserManager
             }, userOption);
 
             await rootCommand.InvokeAsync(args);
-        }
-    }
-
-    static class ObjectHelper
-    {
-        public static void Dump<T>(this T x)
-        {
-            string json = JsonConvert.SerializeObject(x, Formatting.Indented);
-            Console.WriteLine(json);
         }
     }
 }

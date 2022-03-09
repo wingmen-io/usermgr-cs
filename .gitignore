@@ -1,3 +1,7 @@
+# Local developer files
+.DS_Store
 .env
-/bin/
-/obj/
+
+# Build results
+bin/
+obj/

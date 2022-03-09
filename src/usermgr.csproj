@@ -7,6 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratedAssemblyInfoFile>Properties\assemblyinfo.cs</GeneratedAssemblyInfoFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Aserto.Client.Grpc" Version="0.8.0" />
     <PackageReference Include="dotenv.net" Version="3.1.1" />
@@ -18,4 +23,5 @@
   <ItemGroup>
     <None Remove="Okta.Sdk" />
   </ItemGroup>
+
 </Project>
